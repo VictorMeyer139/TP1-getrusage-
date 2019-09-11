@@ -65,7 +65,7 @@ ITEM *aloca_struct(int tamanho){
     return malloc(sizeof(ITEM)*tamanho);
 }
 
-void preenche_struct(ITEM item, int tamanho_struct, FILE *f, char *nome_arquivo){
+void preenche_struct(ITEM item, int tamanho_struct, FILE *f, char *nome_arquivo){//Aqui ainda não tá pronto, tem que terminar
     char *string_line, linha_interesse = 3;
     for (int i = 0; i < tamanho_struct; ++i) {
         f = abre_arquivo(nome_arquivo);
