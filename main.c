@@ -64,9 +64,17 @@ ITEM *aloca_struct(int tamanho){
     return malloc(sizeof(ITEM)*tamanho);
 }
 
-char * encontra_o_peso(string_line){
+char * encontra_o_peso_string(char *string_line){
     char *s;
-
+    int cont = 0;
+    for (int i = 0; string_line[i] != ' ' ; ++i) {//Esse for pra saber o tanto que tenho que alocar em s
+        cont++;
+    }
+    s = malloc(cont* sizeof(char));
+    for (int i = 0; string_line[i] != ' '; ++i) {
+        s[i] = string_line[i];
+    }
+    printf("%s\n", s);
 }
 
 void preenche_struct(ITEM *itens, int tamanho_struct, FILE *f, char *nome_arquivo){//Aqui ainda não tá pronto, tem que terminar
@@ -75,7 +83,7 @@ void preenche_struct(ITEM *itens, int tamanho_struct, FILE *f, char *nome_arquiv
         f = abre_arquivo(nome_arquivo);
         string_line = pega_linha(f, linha_interesse);
         linha_interesse++;
-        string_numero_peso = encontra_o_peso(string_line);
+        string_numero_peso = encontra_o_peso_string(string_line);
     }
 }
 
