@@ -6,8 +6,7 @@ typedef struct {
     int peso, valor;
 }ITEM;
 
-int myPow(int n2){//Algoritmo para produzir um valor 10 elevado a n em que n é, nesse programa, o numero de algarismos
-    int n1 = 10;
+int myPow(int n1, int n2){//Faz n1 elvado a n2
     int resultado = 1;
     while(n2 > 0){
         resultado = resultado*n1;
@@ -55,7 +54,7 @@ int converte_para_int(char *string){
     int numero, number = 0, cont = 0;
     for (int i = qtde_char-1; i >= 0; --i) {
         numero = string[i] - 48;
-        number += numero*myPow(cont);
+        number += numero*myPow(10, cont);
         cont++;
     }
     return number;
@@ -65,13 +64,18 @@ ITEM *aloca_struct(int tamanho){
     return malloc(sizeof(ITEM)*tamanho);
 }
 
-void preenche_struct(ITEM item, int tamanho_struct, FILE *f, char *nome_arquivo){//Aqui ainda não tá pronto, tem que terminar
-    char *string_line, linha_interesse = 3;
+char * encontra_o_peso(string_line){
+    char *s;
+
+}
+
+void preenche_struct(ITEM *itens, int tamanho_struct, FILE *f, char *nome_arquivo){//Aqui ainda não tá pronto, tem que terminar
+    char *string_line, linha_interesse = 3, *string_numero_peso, *string_numero_valor;
     for (int i = 0; i < tamanho_struct; ++i) {
         f = abre_arquivo(nome_arquivo);
         string_line = pega_linha(f, linha_interesse);
         linha_interesse++;
-        printf("%s\n", string_line);
+        string_numero_peso = encontra_o_peso(string_line);
     }
 }
 
@@ -88,6 +92,6 @@ int main() {
     capacidade_mochila = converte_para_int(pega_linha(file, 1));
     printf("Tamanho da struct: %d\nCapacidade da mochila: %d\n", tamanho_struct, capacidade_mochila);
     itens = aloca_struct(tamanho_struct);//Alocando um array de ítens
-    preenche_struct(*itens, tamanho_struct, file, nome_arquivo);//Preenchendo o array de ítens
+    preenche_struct(itens, tamanho_struct, file, nome_arquivo);//Preenchendo o array de ítens
     return 0;
 }
