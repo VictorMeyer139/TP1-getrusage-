@@ -151,9 +151,8 @@ ITEM * trata_as_parada_do_arquivo(){
     tamanho_struct = converte_para_int(pega_linha(file, 2));
     file = abre_arquivo(nome_arquivo);
     capacidade_mochila = converte_para_int(pega_linha(file, 1));
-    printf("Tamanho da struct: %d\nCapacidade da mochila: %d\n", tamanho_struct, capacidade_mochila);
+    //printf("Tamanho da struct: %d\nCapacidade da mochila: %d\n", tamanho_struct, capacidade_mochila);
     itens = aloca_struct();//Alocando um array de ítens
     preenche_struct(itens, file, nome_arquivo);//Preenchendo o array de ítens
-    printa_struct(itens);
     return itens;
 }

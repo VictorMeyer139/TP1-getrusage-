@@ -15,22 +15,28 @@ void ordenar(ITEM *itens){
     }
 }
 
-void guloso_solution(ITEM *itens){
+FILE* abre_arquivo_escrita(){
     FILE *sol;
     sol = fopen("guloso_solution.txt","r+");
     if(sol == NULL){
         printf("Não foi possível abrir o arquivo texto da guloso_solution!!!\n");
         exit(2);
     }
-    int soma_p = 0, soma_aux;
+    return sol;
+}
+
+void guloso_solution(ITEM *itens){
+    FILE *file;
+    int soma_p = 0, soma_aux = 0;
+    file = abre_arquivo_escrita();
     ordenar(itens);
     for(int i = 0; soma_aux <= capacidade_mochila || i < tamanho_struct; i++) {
         soma_aux = soma_p + itens[i].peso;
         if(soma_aux <= capacidade_mochila) {
             soma_p += itens[i].peso;
-            fprintf(sol,"Número do item: %d - Peso: %d Valor: %d\n", itens[i].id, itens[i].peso, itens[i].valor);
+            fprintf(file,"Número do item: %d - Peso: %d Valor: %d\n", itens[i].id, itens[i].peso, itens[i].valor);
         }
     }
     printf("%d\n", soma_p);
-    fclose(sol);
+    fclose(file);
 }
