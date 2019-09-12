@@ -131,16 +131,6 @@ void preenche_struct(ITEM *itens, FILE *f, char *nome_arquivo){
     }
 }
 
-void printa_struct(ITEM *itens){
-    /*
-     * Aqui só vai printar a struct, posteriormente essa função deve sumir depois;
-     * Fiz essa função apenas para verificar se toda a alocação e preenchimento deu certo
-     */
-    for (int i = 0; i <tamanho_struct ; ++i) {
-        printf("\n------------------\nPos = %d\nPeso = %d\nValor = %d", i, itens[i].peso, itens[i].valor);
-    }
-}
-
 ITEM * trata_as_parada_do_arquivo(){
     ITEM *itens;
     FILE *file;

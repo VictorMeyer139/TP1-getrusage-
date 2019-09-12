@@ -15,6 +15,5 @@ ITEM *aloca_struct();
 char * encontra_o_peso_string(const char *string_line);
 char * encontra_o_valor_string(const char *string_line);
 void preenche_struct(ITEM *itens, FILE *f, char *nome_arquivo);
-void printa_struct(ITEM *itens);
 ITEM * trata_as_parada_do_arquivo();
 #endif //UNTITLED_PEGAR_DO_ARQUIVO_H
