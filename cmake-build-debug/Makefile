@@ -122,32 +122,59 @@ untitled/fast:
 	$(MAKE) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/build
 .PHONY : untitled/fast
 
-estrutura_de_dados.obj: estrutura_de_dados.c.obj
+C_files/estrutura_de_dados.obj: C_files/estrutura_de_dados.c.obj
 
-.PHONY : estrutura_de_dados.obj
+.PHONY : C_files/estrutura_de_dados.obj
 
 # target to build an object file
-estrutura_de_dados.c.obj:
-	$(MAKE) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/estrutura_de_dados.c.obj
-.PHONY : estrutura_de_dados.c.obj
+C_files/estrutura_de_dados.c.obj:
+	$(MAKE) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/C_files/estrutura_de_dados.c.obj
+.PHONY : C_files/estrutura_de_dados.c.obj
 
-estrutura_de_dados.i: estrutura_de_dados.c.i
+C_files/estrutura_de_dados.i: C_files/estrutura_de_dados.c.i
 
-.PHONY : estrutura_de_dados.i
+.PHONY : C_files/estrutura_de_dados.i
 
 # target to preprocess a source file
-estrutura_de_dados.c.i:
-	$(MAKE) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/estrutura_de_dados.c.i
-.PHONY : estrutura_de_dados.c.i
+C_files/estrutura_de_dados.c.i:
+	$(MAKE) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/C_files/estrutura_de_dados.c.i
+.PHONY : C_files/estrutura_de_dados.c.i
 
-estrutura_de_dados.s: estrutura_de_dados.c.s
+C_files/estrutura_de_dados.s: C_files/estrutura_de_dados.c.s
 
-.PHONY : estrutura_de_dados.s
+.PHONY : C_files/estrutura_de_dados.s
 
 # target to generate assembly for a file
-estrutura_de_dados.c.s:
-	$(MAKE) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/estrutura_de_dados.c.s
-.PHONY : estrutura_de_dados.c.s
+C_files/estrutura_de_dados.c.s:
+	$(MAKE) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/C_files/estrutura_de_dados.c.s
+.PHONY : C_files/estrutura_de_dados.c.s
+
+C_files/pegar_do_arquivo.obj: C_files/pegar_do_arquivo.c.obj
+
+.PHONY : C_files/pegar_do_arquivo.obj
+
+# target to build an object file
+C_files/pegar_do_arquivo.c.obj:
+	$(MAKE) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/C_files/pegar_do_arquivo.c.obj
+.PHONY : C_files/pegar_do_arquivo.c.obj
+
+C_files/pegar_do_arquivo.i: C_files/pegar_do_arquivo.c.i
+
+.PHONY : C_files/pegar_do_arquivo.i
+
+# target to preprocess a source file
+C_files/pegar_do_arquivo.c.i:
+	$(MAKE) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/C_files/pegar_do_arquivo.c.i
+.PHONY : C_files/pegar_do_arquivo.c.i
+
+C_files/pegar_do_arquivo.s: C_files/pegar_do_arquivo.c.s
+
+.PHONY : C_files/pegar_do_arquivo.s
+
+# target to generate assembly for a file
+C_files/pegar_do_arquivo.c.s:
+	$(MAKE) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/C_files/pegar_do_arquivo.c.s
+.PHONY : C_files/pegar_do_arquivo.c.s
 
 main.obj: main.c.obj
 
@@ -185,9 +212,12 @@ help:
 	@echo ... edit_cache
 	@echo ... untitled
 	@echo ... rebuild_cache
-	@echo ... estrutura_de_dados.obj
-	@echo ... estrutura_de_dados.i
-	@echo ... estrutura_de_dados.s
+	@echo ... C_files/estrutura_de_dados.obj
+	@echo ... C_files/estrutura_de_dados.i
+	@echo ... C_files/estrutura_de_dados.s
+	@echo ... C_files/pegar_do_arquivo.obj
+	@echo ... C_files/pegar_do_arquivo.i
+	@echo ... C_files/pegar_do_arquivo.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
