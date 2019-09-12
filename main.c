@@ -8,6 +8,7 @@ int main() {
     itens = trata_as_parada_do_arquivo();//ítens é uma struct já alocada com os dados do arquivo
     printa_struct(itens);
     printf("\n============= SOLUÇÃO GULOSA =============\n");
-    vetor_relacao_valor_peso(itens);
+    guloso_solution(itens);
+    printf("\n============= SOLUÇÃO FORÇA BRUTA =============\n");
     return 0;
 }

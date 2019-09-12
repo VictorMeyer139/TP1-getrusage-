@@ -3,9 +3,11 @@
 //
 #ifndef UNTITLED_GLOBAIS_H
 #define UNTITLED_GLOBAIS_H
+
 typedef struct {//Essa struct é um ítem que contém peso e valor
     int peso, valor;
 }ITEM;
+
 int tamanho_struct;
 int capacidade_mochila;
 #endif //UNTITLED_GLOBAIS_H
