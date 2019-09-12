@@ -127,6 +127,7 @@ void preenche_struct(ITEM *itens, FILE *f, char *nome_arquivo){
         numero_valor = converte_para_int(string_numero_valor);
         itens[i].peso = numero_peso;
         itens[i].valor = numero_valor;
+        itens[i].id = i;
     }
 }
 

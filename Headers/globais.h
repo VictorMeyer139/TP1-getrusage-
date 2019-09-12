@@ -6,6 +6,7 @@
 
 typedef struct {//Essa struct é um ítem que contém peso e valor
     int peso, valor;
+    int id;
 }ITEM;
 
 int tamanho_struct;
