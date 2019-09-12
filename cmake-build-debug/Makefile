@@ -123,6 +123,33 @@ untitled/fast:
 	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/build
 .PHONY : untitled/fast
 
+C_files/guloso_solution.o: C_files/guloso_solution.c.o
+
+.PHONY : C_files/guloso_solution.o
+
+# target to build an object file
+C_files/guloso_solution.c.o:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/C_files/guloso_solution.c.o
+.PHONY : C_files/guloso_solution.c.o
+
+C_files/guloso_solution.i: C_files/guloso_solution.c.i
+
+.PHONY : C_files/guloso_solution.i
+
+# target to preprocess a source file
+C_files/guloso_solution.c.i:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/C_files/guloso_solution.c.i
+.PHONY : C_files/guloso_solution.c.i
+
+C_files/guloso_solution.s: C_files/guloso_solution.c.s
+
+.PHONY : C_files/guloso_solution.s
+
+# target to generate assembly for a file
+C_files/guloso_solution.c.s:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/C_files/guloso_solution.c.s
+.PHONY : C_files/guloso_solution.c.s
+
 C_files/pegar_do_arquivo.o: C_files/pegar_do_arquivo.c.o
 
 .PHONY : C_files/pegar_do_arquivo.o
@@ -186,6 +213,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... untitled"
 	@echo "... edit_cache"
+	@echo "... C_files/guloso_solution.o"
+	@echo "... C_files/guloso_solution.i"
+	@echo "... C_files/guloso_solution.s"
 	@echo "... C_files/pegar_do_arquivo.o"
 	@echo "... C_files/pegar_do_arquivo.i"
 	@echo "... C_files/pegar_do_arquivo.s"

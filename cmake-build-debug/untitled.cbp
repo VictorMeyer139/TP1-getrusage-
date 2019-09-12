@@ -78,10 +78,16 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/aluno/CLionProjects/TP1-LAEDS/C files/guloso_solution.c">
+			<Option target="untitled"/>
+		</Unit>
 		<Unit filename="/home/aluno/CLionProjects/TP1-LAEDS/C files/pegar_do_arquivo.c">
 			<Option target="untitled"/>
 		</Unit>
 		<Unit filename="/home/aluno/CLionProjects/TP1-LAEDS/Headers/globais.h">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/aluno/CLionProjects/TP1-LAEDS/Headers/guloso_solution.h">
 			<Option target="untitled"/>
 		</Unit>
 		<Unit filename="/home/aluno/CLionProjects/TP1-LAEDS/Headers/pegar_do_arquivo.h">
