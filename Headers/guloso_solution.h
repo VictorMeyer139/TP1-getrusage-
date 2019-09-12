@@ -3,5 +3,5 @@
 #define UNTITLED_GULOSO_SOLUTION_H
 void guloso_solution(ITEM *itens);
 void ordenar(ITEM *itens);
-FILE* abre_arquivo_escrita();
+FILE* abre_arquivo_escrita_guloso();
 #endif //UNTITLED_GULOSO_SOLUTION_H

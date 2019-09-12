@@ -15,7 +15,7 @@ void ordenar(ITEM *itens){
     }
 }
 
-FILE* abre_arquivo_escrita(){
+FILE* abre_arquivo_escrita_guloso(){
     FILE *sol;
     sol = fopen("guloso_solution.txt","r+");
     if(sol == NULL){
@@ -28,7 +28,7 @@ FILE* abre_arquivo_escrita(){
 void guloso_solution(ITEM *itens){
     FILE *file;
     int soma_p = 0, soma_aux = 0;
-    file = abre_arquivo_escrita();
+    file = abre_arquivo_escrita_guloso();
     ordenar(itens);
     for(int i = 0; soma_aux <= capacidade_mochila || i < tamanho_struct; i++) {
         soma_aux = soma_p + itens[i].peso;
