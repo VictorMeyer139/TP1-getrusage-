@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../Headers/estrutura_de_dados.h"
+#include "../Headers/globais.h"
 
 int myPow(int n1, int n2){//Faz n1 elvado a n2
     int resultado = 1;
@@ -58,8 +58,8 @@ int converte_para_int(char *string){//Irá converter uma string passada como par
     return number;//retorna o número já convertido para string
 }
 
-ITEM *aloca_struct(int tamanho){//Essa função irá APENAS alocar a struct com um tamanho 'tamanho'
-    return malloc(sizeof(ITEM)*tamanho);
+ITEM *aloca_struct(){//Essa função irá APENAS alocar a struct com um tamanho 'tamanho'
+    return malloc(sizeof(ITEM)*tamanho_struct);
 }
 
 char * encontra_o_peso_string(const char *string_line){
@@ -111,7 +111,7 @@ char * encontra_o_valor_string(const char *string_line) {
     return s;//Retorna o ponteiro já com o valor do valor no formato de string
 }
 
-void preenche_struct(ITEM *itens, int tamanho_struct, FILE *f, char *nome_arquivo){
+void preenche_struct(ITEM *itens, FILE *f, char *nome_arquivo){
     //Aqui irei preencher os dados da struct que já está previamente alocada
     char *string_line, *string_numero_peso, *string_numero_valor;
     int numero_valor, numero_peso;
@@ -130,12 +130,12 @@ void preenche_struct(ITEM *itens, int tamanho_struct, FILE *f, char *nome_arquiv
     }
 }
 
-void printa_struct(ITEM *itens, int tamanho){
+void printa_struct(ITEM *itens){
     /*
      * Aqui só vai printar a struct, posteriormente essa função deve sumir depois;
      * Fiz essa função apenas para verificar se toda a alocação e preenchimento deu certo
      */
-    for (int i = 0; i <tamanho ; ++i) {
+    for (int i = 0; i <tamanho_struct ; ++i) {
         printf("\n------------------\nPos = %d\nPeso = %d\nValor = %d", i, itens[i].peso, itens[i].valor);
     }
 }
@@ -144,7 +144,6 @@ ITEM * trata_as_parada_do_arquivo(){
     ITEM *itens;
     FILE *file;
     char nome_arquivo[100];
-    int tamanho_struct, capacidade_mochila;
     printf("Informe o nome do arquivo: ");
     scanf(" %[^\n]s", nome_arquivo);
     file = abre_arquivo(nome_arquivo);
@@ -152,8 +151,8 @@ ITEM * trata_as_parada_do_arquivo(){
     file = abre_arquivo(nome_arquivo);
     capacidade_mochila = converte_para_int(pega_linha(file, 1));
     printf("Tamanho da struct: %d\nCapacidade da mochila: %d\n", tamanho_struct, capacidade_mochila);
-    itens = aloca_struct(tamanho_struct);//Alocando um array de ítens
-    preenche_struct(itens, tamanho_struct, file, nome_arquivo);//Preenchendo o array de ítens
-    printa_struct(itens, tamanho_struct);
+    itens = aloca_struct();//Alocando um array de ítens
+    preenche_struct(itens, file, nome_arquivo);//Preenchendo o array de ítens
+    printa_struct(itens);
     return itens;
 }
