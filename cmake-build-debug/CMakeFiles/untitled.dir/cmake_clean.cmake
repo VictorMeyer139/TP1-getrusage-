@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/untitled.dir/main.c.obj"
+  "CMakeFiles/untitled.dir/estrutura_de_dados.c.obj"
   "untitled.pdb"
   "untitled.exe"
   "untitled.exe.manifest"

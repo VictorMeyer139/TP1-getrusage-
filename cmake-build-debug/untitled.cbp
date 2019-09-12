@@ -76,6 +76,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/pierr/CLionProjects/TP1-LAEDS/estrutura_de_dados.c">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="C:/Users/pierr/CLionProjects/TP1-LAEDS/estrutura_de_dados.h">
+			<Option target="untitled"/>
+		</Unit>
 		<Unit filename="C:/Users/pierr/CLionProjects/TP1-LAEDS/main.c">
 			<Option target="untitled"/>
 		</Unit>

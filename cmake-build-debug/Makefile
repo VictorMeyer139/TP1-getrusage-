@@ -122,6 +122,33 @@ untitled/fast:
 	$(MAKE) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/build
 .PHONY : untitled/fast
 
+estrutura_de_dados.obj: estrutura_de_dados.c.obj
+
+.PHONY : estrutura_de_dados.obj
+
+# target to build an object file
+estrutura_de_dados.c.obj:
+	$(MAKE) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/estrutura_de_dados.c.obj
+.PHONY : estrutura_de_dados.c.obj
+
+estrutura_de_dados.i: estrutura_de_dados.c.i
+
+.PHONY : estrutura_de_dados.i
+
+# target to preprocess a source file
+estrutura_de_dados.c.i:
+	$(MAKE) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/estrutura_de_dados.c.i
+.PHONY : estrutura_de_dados.c.i
+
+estrutura_de_dados.s: estrutura_de_dados.c.s
+
+.PHONY : estrutura_de_dados.s
+
+# target to generate assembly for a file
+estrutura_de_dados.c.s:
+	$(MAKE) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/estrutura_de_dados.c.s
+.PHONY : estrutura_de_dados.c.s
+
 main.obj: main.c.obj
 
 .PHONY : main.obj
@@ -158,6 +185,9 @@ help:
 	@echo ... edit_cache
 	@echo ... untitled
 	@echo ... rebuild_cache
+	@echo ... estrutura_de_dados.obj
+	@echo ... estrutura_de_dados.i
+	@echo ... estrutura_de_dados.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
