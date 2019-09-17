@@ -59,7 +59,7 @@ int converte_para_int(char *string){//Irá converter uma string passada como par
 }
 
 ITEM *aloca_struct(){//Essa função irá APENAS alocar a struct com um tamanho 'tamanho'
-    return malloc(sizeof(ITEM)*tamanho_struct);
+    return malloc(sizeof(ITEM)*tamanho_struct_item);
 }
 
 char * encontra_o_peso_string(const char *string_line){
@@ -116,7 +116,7 @@ void preenche_struct(ITEM *itens, FILE *f, char *nome_arquivo){
     char *string_line, *string_numero_peso, *string_numero_valor;
     int numero_valor, numero_peso;
     int linha_interesse = 3;//Linha interesse é a linha que quero ler do arquivo naquele momento, começa em 3
-    for (int i = 0; i < tamanho_struct; ++i){
+    for (int i = 0; i < tamanho_struct_item; ++i){
         f = abre_arquivo(nome_arquivo);
         string_line = pega_linha(f, linha_interesse);//Vou lendo linha a linha do arquivo a partir da linha 3
         linha_interesse++;//A linha de interesse (a linha que quero ler do arquivo) é acrementada
@@ -138,10 +138,9 @@ ITEM * trata_as_parada_do_arquivo(){
     printf("Informe o nome do arquivo: ");
     scanf(" %[^\n]s", nome_arquivo);
     file = abre_arquivo(nome_arquivo);
-    tamanho_struct = converte_para_int(pega_linha(file, 2));
+    tamanho_struct_item = converte_para_int(pega_linha(file, 2));
     file = abre_arquivo(nome_arquivo);
     capacidade_mochila = converte_para_int(pega_linha(file, 1));
-    //printf("Tamanho da struct: %d\nCapacidade da mochila: %d\n", tamanho_struct, capacidade_mochila);
     itens = aloca_struct();//Alocando um array de ítens
     preenche_struct(itens, file, nome_arquivo);//Preenchendo o array de ítens
     return itens;

@@ -4,8 +4,8 @@
 
 void ordenar(ITEM *itens){
     ITEM aux;
-    for (int i = 0; i < tamanho_struct; ++i) {
-        for (int j = i+1; j < tamanho_struct; ++j) {
+    for (int i = 0; i < tamanho_struct_item; ++i) {
+        for (int j = i+1; j < tamanho_struct_item; ++j) {
             if(itens[j].valor/itens[j].peso > itens[i].valor/itens[i].peso){
                 aux = itens[j];
                 itens[j] = itens[i];
@@ -30,10 +30,10 @@ void guloso_solution(ITEM *itens){
     int soma_p = 0, soma_aux = 0;
     file = abre_arquivo_escrita_guloso();
     ordenar(itens);
-    for(int i = 0; soma_aux <= capacidade_mochila || i < tamanho_struct; i++) {
+    for(int i = 0; soma_aux <= capacidade_mochila || i < tamanho_struct_item; i++) {
         soma_aux = soma_p + itens[i].peso;
         if(soma_aux <= capacidade_mochila) {
-            soma_p += itens[i].peso;
+            soma_p += itens[i].peso;//Adiciono o ítem na minha solução
             fprintf(file,"Número do item: %d - Peso: %d Valor: %d\n", itens[i].id, itens[i].peso, itens[i].valor);
         }
     }
