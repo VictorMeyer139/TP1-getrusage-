@@ -27,16 +27,19 @@ FILE* abre_arquivo_escrita_guloso(){
 
 void guloso_solution(ITEM *itens){
     FILE *file;
-    int soma_p = 0, soma_aux = 0;
+    int soma_p = 0, soma_aux = 0, soma_valores = 0;
     file = abre_arquivo_escrita_guloso();
     ordenar(itens);
     for(int i = 0; soma_aux <= capacidade_mochila || i < tamanho_struct_item; i++) {
         soma_aux = soma_p + itens[i].peso;
         if(soma_aux <= capacidade_mochila) {
             soma_p += itens[i].peso;//Adiciono o ítem na minha solução
+            soma_valores += itens[i].valor;
             fprintf(file,"Número do item: %d - Peso: %d - Valor: %d\n", itens[i].id, itens[i].peso, itens[i].valor);
         }
     }
+    fprintf(file,"Somatório dos valores: %d\n", soma_valores);
+    fprintf(file,"Somatório dos pesos: %d\n", soma_p);
     printf("%d\n", soma_p);
     fclose(file);
 }

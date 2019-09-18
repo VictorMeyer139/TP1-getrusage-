@@ -18,27 +18,28 @@ FILE* abre_arquivo_escrita_bruto(){
     return sol;
 }
 
-SOLUCAO encontra_melhor_solucao_do_numero_de_itens(ITEM *itens, int numero_de_itens){//Encontra a melhor solução para um dado número de ítens
-    SOLUCAO melhor_solucao, solucao2;//A comparação de soluções é feita 2 a 2
-    int i, j;
-    solucao2.qtde_itens = melhor_solucao.qtde_itens = numero_de_itens;
-    solucao2.itens = melhor_solucao.itens = malloc(numero_de_itens*sizeof(ITEM));
-    for (int i = 0; i < numero_de_itens; ++i){ //A solução1 é inicialmente inicializada com um conjunto de ítens
-        melhor_solucao.itens[i] = itens[i];
-    }
-    for (i = 0; i < tamanho_struct_item; ++i){
-
-    }
-
-    return melhor_solucao;
-}
-
 int soma_os_pesos(SOLUCAO s){
     int soma = 0;
     for (int i = 0; i < s.qtde_itens; ++i) {
         soma += s.itens[i].peso;
     }
     return soma;
+}
+
+SOLUCAO encontra_melhor_solucao_do_numero_de_itens(ITEM *itens, int numero_de_itens){//Encontra a melhor solução para um dado número de ítens
+    SOLUCAO melhor_solucao, solucao2;//A comparação de soluções é feita 2 a 2
+    int i, j;
+    solucao2.qtde_itens = melhor_solucao.qtde_itens = numero_de_itens;
+    solucao2.itens = melhor_solucao.itens = malloc(numero_de_itens*sizeof(ITEM));
+    for (i = 0; i < numero_de_itens; ++i){ //A melhor solucao é inicialmente inicializada com um conjunto de ítens
+        melhor_solucao.itens[i] = itens[i];
+    }
+    melhor_solucao.soma_peso = soma_os_pesos(melhor_solucao);
+    for (i = 0; i < tamanho_struct_item; ++i){
+
+    }
+
+    return melhor_solucao;
 }
 
 int bruto(ITEM *itens){
@@ -52,7 +53,6 @@ int bruto(ITEM *itens){
         }
         numero_de_itens++;
     }
-    melhor_solucao.soma_peso = soma_os_pesos(melhor_solucao);
     return melhor_solucao.soma_peso;
 }
 
