@@ -47,7 +47,7 @@ SOLUCAO possibilidades_de_solucao_com_o_item_em_especifico(ITEM item, ITEM *iten
 int bruto(ITEM *itens){
     SOLUCAO *solucoes; //O ponteiro de soluções irá alocar todas as soluções possíveis
     solucoes = malloc(1* sizeof(solucoes));
-    solucoes[0].itens = possibilidades_de_solucao_com_o_item_em_especifico(itens[0], itens);//Testando uma coisa aqui
+    solucoes[0].itens = possibilidades_de_solucao_com_o_item_em_especifico(itens[0], itens);//Testando uma coisa aquiafdasdf
 //    int realocada = 0;
 //    for (int i = 1; i < tamanho_struct_item; ++i) {
 //        realocada++;
