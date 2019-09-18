@@ -19,18 +19,18 @@ FILE* abre_arquivo_escrita_bruto(){
 }
 
 SOLUCAO encontra_melhor_solucao_do_numero_de_itens(ITEM *itens, int numero_de_itens){
-    SOLUCAO solucao;
-    solucao.qtde_itens = numero_de_itens;
-    solucao.itens = malloc(numero_de_itens*sizeof(ITEM));
-    solucao.itens[0] = itens[0];
-    if(numero_de_itens == 1){
-        for (int i = 0; i < tamanho_struct_item; ++i) {
-            if(solucao.itens[0].valor/solucao.itens[0].peso < itens[i].valor/itens[i].peso){
-                solucao.itens[0] = itens[i];
-            }
-        }
+    SOLUCAO melhor_solucao, solucao2;//A comparação de soluções é feita 2 a 2
+    int i, j;
+    solucao2.qtde_itens = melhor_solucao.qtde_itens = numero_de_itens;
+    solucao2.itens = melhor_solucao.itens = malloc(numero_de_itens*sizeof(ITEM));
+    for (int i = 0; i < numero_de_itens; ++i){ //A solução1 é inicialmente inicializada com um conjunto de ítens
+        melhor_solucao.itens[i] = itens[i];
     }
-    return solucao;
+    for (i = 0; i < tamanho_struct_item; ++i){
+
+    }
+
+    return melhor_solucao;
 }
 
 int soma_os_pesos(SOLUCAO s){
