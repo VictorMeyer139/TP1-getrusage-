@@ -4,6 +4,8 @@
 
 typedef struct {//Essa struct contém uma solução
     ITEM *itens;
+    int soma_peso;
+    int qtde_itens;
 }SOLUCAO;
 
 FILE* abre_arquivo_escrita_bruto(){
@@ -16,42 +18,42 @@ FILE* abre_arquivo_escrita_bruto(){
     return sol;
 }
 
-int tem(ITEM item, ITEM *itens, int tamanho_itens){
-    for (int i = 0; i < tamanho_itens; ++i) {
-        if(item.id == itens[i].id){
-            return 1;//return true
+SOLUCAO encontra_melhor_solucao_do_numero_de_itens(ITEM *itens, int numero_de_itens){
+    SOLUCAO solucao;
+    solucao.qtde_itens = numero_de_itens;
+    solucao.itens = malloc(numero_de_itens*sizeof(ITEM));
+    solucao.itens[0] = itens[0];
+    if(numero_de_itens == 1){
+        for (int i = 0; i < tamanho_struct_item; ++i) {
+            if(solucao.itens[0].valor/solucao.itens[0].peso < itens[i].valor/itens[i].peso){
+                solucao.itens[0] = itens[i];
+            }
         }
     }
-    return 0;//return false
+    return solucao;
 }
 
-void guarda_valores_em_aux(ITEM *aux, ITEM *itens_possiveis, int t){
-    for (int i = 0; i < t; ++i) {
-        aux[i] = itens_possiveis[i];
+int soma_os_pesos(SOLUCAO s){
+    int soma = 0;
+    for (int i = 0; i < s.qtde_itens; ++i) {
+        soma += s.itens[i].peso;
     }
-}
-
-SOLUCAO possibilidades_de_solucao_com_o_item_em_especifico(ITEM item, ITEM *itens){
-    ITEM *itens_possiveis, *aux;
-    int t = 1;//t contém o tamanho do ponteiro de itens_possiveis
-    itens_possiveis = malloc(t*sizeof(ITEM));
-    aux = malloc(t*sizeof(ITEM));
-    itens_possiveis[0] = item;
-    for (int i = 0; i < tamanho_struct_item; ++i) {
-        if(!tem(item, itens_possiveis, t)){//se não tem um item dentro do meu vetor de ítens possíveis de tamanho t...
-            guarda_valores_em_aux(aux, itens_possiveis, t);
-        }
-    }
+    return soma;
 }
 
 int bruto(ITEM *itens){
-    SOLUCAO *solucoes; //O ponteiro de soluções irá alocar todas as soluções possíveis
-    solucoes = malloc(1* sizeof(solucoes));
-    solucoes[0].itens = possibilidades_de_solucao_com_o_item_em_especifico(itens[0], itens);//Testando uma coisa aquiafdasdf
-//    int realocada = 0;
-//    for (int i = 1; i < tamanho_struct_item; ++i) {
-//        realocada++;
-//    }
+    SOLUCAO melhor_solucao, melhor_solucao_do_numero_de_itens;
+    melhor_solucao.soma_peso = 0;
+    int numero_de_itens = 1;
+    for (int i = 0; i < tamanho_struct_item; ++i) {
+        melhor_solucao_do_numero_de_itens = encontra_melhor_solucao_do_numero_de_itens(itens, numero_de_itens);
+        if(melhor_solucao.soma_peso < melhor_solucao_do_numero_de_itens.soma_peso){
+            melhor_solucao = melhor_solucao_do_numero_de_itens;
+        }
+        numero_de_itens++;
+    }
+    melhor_solucao.soma_peso = soma_os_pesos(melhor_solucao);
+    return melhor_solucao.soma_peso;
 }
 
 void bruto_solution(ITEM *itens){

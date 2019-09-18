@@ -6,7 +6,7 @@ void ordenar(ITEM *itens){
     ITEM aux;
     for (int i = 0; i < tamanho_struct_item; ++i) {
         for (int j = i+1; j < tamanho_struct_item; ++j) {
-            if(itens[j].valor/itens[j].peso > itens[i].valor/itens[i].peso){
+            if(itens[j].valor/(float)itens[j].peso > itens[i].valor/(float)itens[i].peso){
                 aux = itens[j];
                 itens[j] = itens[i];
                 itens[i] = aux;
@@ -34,7 +34,7 @@ void guloso_solution(ITEM *itens){
         soma_aux = soma_p + itens[i].peso;
         if(soma_aux <= capacidade_mochila) {
             soma_p += itens[i].peso;//Adiciono o ítem na minha solução
-            fprintf(file,"Número do item: %d - Peso: %d Valor: %d\n", itens[i].id, itens[i].peso, itens[i].valor);
+            fprintf(file,"Número do item: %d - Peso: %d - Valor: %d\n", itens[i].id, itens[i].peso, itens[i].valor);
         }
     }
     printf("%d\n", soma_p);
