@@ -8,7 +8,7 @@ int main(){
     itens = trata_as_parada_do_arquivo();//ítens é uma struct já alocada com os dados do arquivo
     printf("\n============= SOLUÇÃO GULOSA =============\n");
     guloso_solution(itens);
-    printf("============= SOLUÇÃO FORÇA BRUTA =============\n");
+    printf("============= SOLUÇÃO FORÇA BRUTA =============\n");//oq esta havnedo
     bruto_solution(itens);
     return 0;
 }
