@@ -18,7 +18,7 @@ FILE* abre_arquivo_escrita_bruto(){
     return sol;
 }
 
-SOLUCAO encontra_melhor_solucao_do_numero_de_itens(ITEM *itens, int numero_de_itens){
+SOLUCAO encontra_melhor_solucao_do_numero_de_itens(ITEM *itens, int numero_de_itens){//Encontra a melhor solução para um dado número de ítens
     SOLUCAO melhor_solucao, solucao2;//A comparação de soluções é feita 2 a 2
     int i, j;
     solucao2.qtde_itens = melhor_solucao.qtde_itens = numero_de_itens;
