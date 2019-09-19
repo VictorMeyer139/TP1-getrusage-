@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/ccc/CLionProjects/TP1-LAEDS/C files/bruto_solution.c" "/home/ccc/CLionProjects/TP1-LAEDS/cmake-build-debug/CMakeFiles/untitled.dir/C_files/bruto_solution.c.o"
-  "/home/ccc/CLionProjects/TP1-LAEDS/C files/guloso_solution.c" "/home/ccc/CLionProjects/TP1-LAEDS/cmake-build-debug/CMakeFiles/untitled.dir/C_files/guloso_solution.c.o"
-  "/home/ccc/CLionProjects/TP1-LAEDS/C files/pegar_do_arquivo.c" "/home/ccc/CLionProjects/TP1-LAEDS/cmake-build-debug/CMakeFiles/untitled.dir/C_files/pegar_do_arquivo.c.o"
-  "/home/ccc/CLionProjects/TP1-LAEDS/main.c" "/home/ccc/CLionProjects/TP1-LAEDS/cmake-build-debug/CMakeFiles/untitled.dir/main.c.o"
+  "/home/aluno/Documentos/TP1-LAEDS/C files/bruto_solution.c" "/home/aluno/Documentos/TP1-LAEDS/cmake-build-debug/CMakeFiles/untitled.dir/C_files/bruto_solution.c.o"
+  "/home/aluno/Documentos/TP1-LAEDS/C files/guloso_solution.c" "/home/aluno/Documentos/TP1-LAEDS/cmake-build-debug/CMakeFiles/untitled.dir/C_files/guloso_solution.c.o"
+  "/home/aluno/Documentos/TP1-LAEDS/C files/pegar_do_arquivo.c" "/home/aluno/Documentos/TP1-LAEDS/cmake-build-debug/CMakeFiles/untitled.dir/C_files/pegar_do_arquivo.c.o"
+  "/home/aluno/Documentos/TP1-LAEDS/main.c" "/home/aluno/Documentos/TP1-LAEDS/cmake-build-debug/CMakeFiles/untitled.dir/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

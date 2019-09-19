@@ -3,6 +3,7 @@
 
 CMakeFiles/untitled.dir/C_files/bruto_solution.c.o: ../C\ files/bruto_solution.c
 CMakeFiles/untitled.dir/C_files/bruto_solution.c.o: ../Headers/globais.h
+CMakeFiles/untitled.dir/C_files/bruto_solution.c.o: ../Headers/pegar_do_arquivo.h
 
 CMakeFiles/untitled.dir/C_files/guloso_solution.c.o: ../C\ files/guloso_solution.c
 CMakeFiles/untitled.dir/C_files/guloso_solution.c.o: ../Headers/globais.h

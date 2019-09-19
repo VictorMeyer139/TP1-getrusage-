@@ -1,11 +1,11 @@
 #include "../Headers/globais.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "../Headers/pegar_do_arquivo.h"
 
 typedef struct {//Essa struct contém uma solução
     ITEM *itens;
-    int soma_peso;
-    int qtde_itens;
+    int soma_peso, soma_valor;
 }SOLUCAO;
 
 FILE* abre_arquivo_escrita_bruto(){
@@ -18,56 +18,47 @@ FILE* abre_arquivo_escrita_bruto(){
     return sol;
 }
 
-int soma_os_pesos(SOLUCAO s){
-    int soma = 0;
-    for (int i = 0; i < s.qtde_itens; ++i) {
-        soma += s.itens[i].peso;
-    }
-    return soma;
-}
-
-//SOLUCAO encontra_melhor_solucao_do_numero_de_itens(ITEM *itens, int numero_de_itens){//Encontra a melhor solução para um dado número de ítens
-//    SOLUCAO melhor_solucao, solucao2;//A comparação de soluções é feita 2 a 2
-//    int i, j;
-//    solucao2.qtde_itens = melhor_solucao.qtde_itens = numero_de_itens;
-//    solucao2.itens = melhor_solucao.itens = malloc(numero_de_itens*sizeof(ITEM));
-//    for (i = 0; i < numero_de_itens; ++i){ //A melhor solucao é inicialmente inicializada com um conjunto de ítens
-//        melhor_solucao.itens[i] = itens[i];
-//    }
-//    melhor_solucao.soma_peso = soma_os_pesos(melhor_solucao);
-//    for (i = 0; i < tamanho_struct_item; ++i){
-//
-//    }
-//
-//    return melhor_solucao;
-//}
-//
-//int bruto(ITEM *itens){
-//    SOLUCAO melhor_solucao, melhor_solucao_do_numero_de_itens;
-//    melhor_solucao.soma_peso = 0;
-//    int numero_de_itens = 1;
-//    for (int i = 0; i < tamanho_struct_item; ++i) {
-//        melhor_solucao_do_numero_de_itens = encontra_melhor_solucao_do_numero_de_itens(itens, numero_de_itens);
-//        if(melhor_solucao.soma_peso < melhor_solucao_do_numero_de_itens.soma_peso){
-//            melhor_solucao = melhor_solucao_do_numero_de_itens;
-//        }
-//        numero_de_itens++;
-//    }
-//    return melhor_solucao.soma_peso;
-//}
-
-int bruto(ITEM *itens){
-    SOLUCAO melhor_solucao;
-    melhor_solucao.itens = itens;
-    melhor_solucao.qtde_itens = tamanho_struct_item;
-    melhor_solucao.soma_peso = soma_os_pesos(melhor_solucao);
+char *cont(char *b){
+    for(int i = 0; ; i++)
+        if(b[i] == 0){
+            b[i] = 1;
+            for(; i >= 0; i--) b[i-1] = 0;
+            break;
+        }
+    return b;
 }
 
 void bruto_solution(ITEM *itens){
     FILE *file;
     file = abre_arquivo_escrita_bruto();
-    int resposta;
-    resposta = bruto(itens);
-    printf("%d\n", resposta);
-    fclose(file);
+    SOLUCAO sol;
+    sol.soma_peso = 0; sol.soma_valor = 0;
+    sol.itens = malloc(sizeof(ITEM)*tamanho_struct_item);
+    int soma_p = 1, soma_v = 0, *id;
+    id = malloc(sizeof(int)*tamanho_struct_item);
+    char *b;
+    b = calloc(tamanho_struct_item, sizeof(char));
+    for(int i = 0; i < myPow(2, tamanho_struct_item); i++){
+        b = cont(b);
+        for(int j = 0, k = 0; j < tamanho_struct_item; j++){
+            if(b[j] == 1){
+                sol.soma_peso += itens[j].peso;
+                sol.soma_valor += itens[j].valor;
+                sol.itens[k] = itens[j];
+                k++;
+            }
+        }
+        if(sol.soma_peso > capacidade_mochila) continue;
+        else if(sol.soma_valor > soma_v) {
+            soma_p = sol.soma_peso;
+            soma_v = sol.soma_valor;
+            for(int i = 0; i < tamanho_struct_item; i++)
+                id[i] = sol.itens[i].id;
+        }
+        sol.soma_valor = 0; sol.soma_peso = 0;
+        for(int i = 0; i < tamanho_struct_item; i++)
+            sol.itens[i].id = 0;
+    }
+    printf("%d %d\n", soma_p, soma_v);
+
 }
