@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "../Headers/globais.h"
 
-int myPow(int n1, int n2){//Faz n1 elvado a n2
+long unsigned int myPow(int n1, int n2){//Faz n1 elvado a n2
     int resultado = 1;
     while(n2 > 0){
         resultado = resultado*n1;

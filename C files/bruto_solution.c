@@ -38,7 +38,7 @@ void bruto_solution(ITEM *itens){
     id = malloc(sizeof(int)*tamanho_struct_item);
     char *b;
     b = calloc(tamanho_struct_item, sizeof(char));
-    for(int i = 0; i < myPow(2, tamanho_struct_item); i++){
+    for(long unsigned int i = 0; i < myPow(2, tamanho_struct_item); i++){
         b = cont(b);
         for(int j = 0, k = 0; j < tamanho_struct_item; j++){
             if(b[j] == 1){
@@ -48,7 +48,7 @@ void bruto_solution(ITEM *itens){
                 k++;
             }
         }
-        if(sol.soma_peso > capacidade_mochila) continue;
+        if(sol.soma_peso >= capacidade_mochila) continue;
         else if(sol.soma_valor > soma_v) {
             soma_p = sol.soma_peso;
             soma_v = sol.soma_valor;
@@ -60,5 +60,4 @@ void bruto_solution(ITEM *itens){
             sol.itens[i].id = 0;
     }
     printf("%d %d\n", soma_p, soma_v);
-
 }
