@@ -1,8 +1,9 @@
+Número do item: 16 - Peso: 3 - Valor: 223
 Número do item: 9 - Peso: 1 - Valor: 9
-Número do item: 1 - Peso: 2 - Valor: 10
 Número do item: 0 - Peso: 1 - Valor: 5
+Número do item: 1 - Peso: 2 - Valor: 10
 Número do item: 7 - Peso: 2 - Valor: 9
-Número do item: 6 - Peso: 2 - Valor: 5
-Número do item: 8 - Peso: 3 - Valor: 6
-Somatório dos valores: 42
+Somatório dos valores: 256
+Somatório dos pesos: 9
+valores: 42
 Somatório dos pesos: 10
