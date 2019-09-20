@@ -34,13 +34,14 @@ void bruto_solution(ITEM *itens){
     SOLUCAO sol;
     sol.soma_peso = 0; sol.soma_valor = 0;
     sol.itens = malloc(sizeof(ITEM)*tamanho_struct_item);
-    int soma_p = 1, soma_v = 0, *id;
+    int soma_p = 1, soma_v = 0, *id, k = 0;
     id = malloc(sizeof(int)*tamanho_struct_item);
     char *b;
     b = calloc(tamanho_struct_item, sizeof(char));
-    for(long unsigned int i = 0; i < myPow(2, tamanho_struct_item); i++){
+    for(unsigned long long int i = 0; i < myPow(2, tamanho_struct_item); i++){
         b = cont(b);
-        for(int j = 0, k = 0; j < tamanho_struct_item; j++){
+        k = 0;
+        for(int j = 0; j < tamanho_struct_item; j++){
             if(b[j] == 1){
                 sol.soma_peso += itens[j].peso;
                 sol.soma_valor += itens[j].valor;
@@ -48,7 +49,7 @@ void bruto_solution(ITEM *itens){
                 k++;
             }
         }
-        if(sol.soma_peso >= capacidade_mochila) continue;
+        if(sol.soma_peso > capacidade_mochila) continue;
         else if(sol.soma_valor > soma_v) {
             soma_p = sol.soma_peso;
             soma_v = sol.soma_valor;
@@ -56,8 +57,14 @@ void bruto_solution(ITEM *itens){
                 id[i] = sol.itens[i].id;
         }
         sol.soma_valor = 0; sol.soma_peso = 0;
-        for(int i = 0; i < tamanho_struct_item; i++)
+        for(int i = k; i < tamanho_struct_item; i++) {
             sol.itens[i].id = 0;
+            sol.itens[i].peso = 0;
+            sol.itens[i].valor = 0;
+        }
     }
+    for(int i = 0; i < k; i++)
+        fprintf(file,"Número do item: %d - Peso: %d - Valor: %d\n", sol.itens[i].id, sol.itens[i].peso, sol.itens[i].valor);
+
     printf("%d %d\n", soma_p, soma_v);
 }
