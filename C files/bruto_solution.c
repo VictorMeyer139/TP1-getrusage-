@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "../Headers/pegar_do_arquivo.h"
+#include <string.h>
 
 typedef struct {//Essa struct contém uma solução
     ITEM *itens;
@@ -34,11 +35,12 @@ void bruto_solution(ITEM *itens){
     SOLUCAO sol;
     sol.soma_peso = 0; sol.soma_valor = 0;
     sol.itens = malloc(sizeof(ITEM)*tamanho_struct_item);
-    int soma_p = 1, soma_v = 0, *id, k = 0;
-    id = malloc(sizeof(int)*tamanho_struct_item);
-    char *b;
+    int soma_p = 1, soma_v = 0, k = 0;
+    char *b, *id;
+    id = malloc(sizeof(char)*tamanho_struct_item);
+    memset(id, -1, sizeof(char)*tamanho_struct_item);
     b = calloc(tamanho_struct_item, sizeof(char));
-    for(unsigned long long int i = 0; i < myPow(2, tamanho_struct_item); i++){
+    for(unsigned long long int i = 0; i < myPow(2, tamanho_struct_item)-1; i++){
         b = cont(b);
         k = 0;
         for(int j = 0; j < tamanho_struct_item; j++){
@@ -49,12 +51,12 @@ void bruto_solution(ITEM *itens){
                 k++;
             }
         }
-        if(sol.soma_peso > capacidade_mochila) continue;
-        else if(sol.soma_valor > soma_v) {
+        if(sol.soma_valor > soma_v && sol.soma_peso <= capacidade_mochila) {
             soma_p = sol.soma_peso;
             soma_v = sol.soma_valor;
-            for(int i = 0; i < tamanho_struct_item; i++)
+            for(int i = 0; i < k; i++) {
                 id[i] = sol.itens[i].id;
+            }
         }
         sol.soma_valor = 0; sol.soma_peso = 0;
         for(int i = k; i < tamanho_struct_item; i++) {
@@ -63,8 +65,13 @@ void bruto_solution(ITEM *itens){
             sol.itens[i].valor = 0;
         }
     }
-    for(int i = 0; i < k; i++)
-        fprintf(file,"Número do item: %d - Peso: %d - Valor: %d\n", sol.itens[i].id, sol.itens[i].peso, sol.itens[i].valor);
+    int size = 0;
+    while(id[size]!=-1) size++;
 
+    for(int i = 0; i < size; i++)
+        fprintf(file, "Número do item: %d - Peso: %d - Valor: %d\n", sol.itens[i].id, sol.itens[i].peso,sol.itens[i].valor);
+
+    fprintf(file,"Somatório dos valores: %d\n", soma_v);
+    fprintf(file,"Somatório dos pesos: %d\n", soma_p);
     printf("%d %d\n", soma_p, soma_v);
 }
