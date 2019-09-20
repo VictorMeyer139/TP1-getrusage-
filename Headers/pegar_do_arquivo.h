@@ -6,7 +6,7 @@
 #include "globais.h"
 #ifndef UNTITLED_PEGAR_DO_ARQUIVO_H
 #define UNTITLED_PEGAR_DO_ARQUIVO_H
-unsigned long long int myPow(int n1, int n2);
+unsigned long int myPow(int n1, int n2);
 int quantidade_de_caracteres(const char *string);
 FILE *abre_arquivo(char *nome_arquivo);
 char *pega_linha(FILE *f, int linha_interesse);
