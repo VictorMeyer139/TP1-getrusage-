@@ -40,7 +40,7 @@ void bruto_solution(ITEM *itens){
     id = malloc(sizeof(char)*tamanho_struct_item);
     memset(id, -1, sizeof(char)*tamanho_struct_item);
     b = calloc(tamanho_struct_item, sizeof(char));
-    for(unsigned long long int i = 0; i < myPow(2, tamanho_struct_item)-1; i++){
+    for(unsigned long int i = 0; i < myPow(2, tamanho_struct_item)-1; i++){
         b = cont(b);
         k = 0;
         for(int j = 0; j < tamanho_struct_item; j++){
